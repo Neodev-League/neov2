@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Make background black during intro */
+body {
+  background: black;
+}
+
+.cooked {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center;
+  width: auto;
+  height: auto;
+  max-width: 40vw;
+  animation: zoom-in 1.5s cubic-bezier(1,-0.01,.65,.38);
+}
+
+@keyframes zoom-in {
+  from {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0.8;
+  } 
+  to {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+}
+
+.intro-container {
+  background: black;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+}
+
+
+.logo-fade {
+  animation: fade-out 0.2s ease-out forwards;
+  animation-delay: 1.5s;
+}
+
+
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+.glitch {
+  animation: glitch-effect 0.3s ease-out forwards;
+  animation-delay: 1.5s;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.glitch::before,
+.glitch::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  animation: glitch-bars 0.1s steps(1) infinite;
+}
+
+.glitch::before {
+  animation-duration: 0.15s;
+  animation-delay: 0.05s;
+}
+
+@keyframes glitch-bars {
+  0% {
+    clip-path: polygon(
+      0 10%, 100% 10%, 100% 15%, 0 15%,
+      0 45%, 100% 45%, 100% 48%, 0 48%,
+      0 80%, 100% 80%, 100% 85%, 0 85%
+    );
+    background: rgba(16, 113, 91, 0.8);
+    transform: translateX(5px);
+  }
+  20% {
+    clip-path: polygon(
+      0 15%, 100% 15%, 100% 25%, 0 25%,
+      0 65%, 100% 65%, 100% 70%, 0 70%,
+      0 90%, 100% 90%, 100% 95%, 0 95%
+    );
+    background: rgba(133, 226, 190, 0.8);
+    transform: translateX(-5px);
+  }
+  40% {
+    clip-path: polygon(
+      0 5%, 100% 5%, 100% 10%, 0 10%,
+      0 35%, 100% 35%, 100% 40%, 0 40%,
+      0 70%, 100% 70%, 100% 75%, 0 75%
+    );
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateX(3px);
+  }
+  60% {
+    clip-path: polygon(
+      0 20%, 100% 20%, 100% 30%, 0 30%,
+      0 50%, 100% 50%, 100% 55%, 0 55%,
+      0 85%, 100% 85%, 100% 90%, 0 90%
+    );
+    background: rgba(16, 113, 91, 0.8);
+    transform: translateX(-3px);
+  }
+  80% {
+    clip-path: polygon(
+      0 25%, 100% 25%, 100% 35%, 0 35%,
+      0 55%, 100% 55%, 100% 60%, 0 60%,
+      0 95%, 100% 95%, 100% 100%, 0 100%
+    );
+    background: rgba(133, 226, 190, 0.8);
+    transform: translateX(5px);
+  }
+  100% {
+    clip-path: polygon(
+      0 0%, 100% 0%, 100% 5%, 0 5%,
+      0 40%, 100% 40%, 100% 45%, 0 45%,
+      0 75%, 100% 75%, 100% 80%, 0 80%
+    );
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateX(-5px);
+  }
+}
+
+@keyframes scan-lines {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes horizontal-shift {
+  0% {
+    transform: translateX(-50%) skewX(45deg);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  25% {
+    transform: translateX(-25%) skewX(-35deg);
+    clip-path: polygon(5% 0, 95% 0, 100% 100%, 0 100%);
+  }
+  50% {
+    transform: translateX(25%) skewX(15deg);
+    clip-path: polygon(0 10%, 100% 0, 95% 90%, 5% 100%);
+  }
+  75% {
+    transform: translateX(50%) skewX(-45deg);
+    clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 90%);
+  }
+  100% {
+    transform: translateX(-50%) skewX(45deg);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes glitch-effect {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(-10px);
+  }
+  30% {
+    transform: translateX(10px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  70% {
+    transform: translateX(5px);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+}
+
+.content {
+  opacity: 0;
+  animation: fade-in 0.5s ease-in forwards;
+  animation-delay: 1.8s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    background: white;
+  }
+}
+
+/* Update the App.jsx container class to add perspective */
+.perspective-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Add noise texture */
+.glitch {
+  position: relative;
+}
+
+.glitch::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
