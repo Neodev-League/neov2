@@ -18,7 +18,7 @@ body {
 }
 
 .neo-logo {
-  animation: pulse-and-scale 2s ease-out forwards;
+  animation: pulse-and-scale 2s ease-out infinite;
 }
 
 @keyframes pulse-and-scale {
@@ -38,7 +38,7 @@ body {
     filter: brightness(1.1);
   }
   100% {
-    transform: scale(6.3);
+    transform: scale(3);
     opacity: 0;
     filter: brightness(1.3);
   }
@@ -164,4 +164,170 @@ body {
   100% {
     background-position: 50px 50px;
   }
+}
+
+/* Make background white during intro */
+body {
+  background: white;
+}
+
+.intro-container {
+  background-color: white;
+  transition: opacity 0.5s ease-out;
+}
+
+.intro-container.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.neo-logo {
+  animation: pulse-and-scale 2s ease-out infinite;
+}
+
+@keyframes pulse-and-scale {
+  0% {
+    transform: scale(3);
+    opacity: 0;
+    filter: brightness(1.2);
+  }
+  20% {
+    transform: scale(5);
+    opacity: 1;
+    filter: brightness(1);
+  }
+  80% {
+    transform: scale(5);
+    opacity: 1;
+    filter: brightness(1.1);
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+    filter: brightness(1.3);
+  }
+}
+
+.content {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.content.loaded {
+  opacity: 1;
+}
+
+/* Enhanced Floating Animations for Bubbles */
+@keyframes float-1 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(15px, -15px) rotate(5deg);
+  }
+  50% {
+    transform: translate(0, -30px) rotate(0deg);
+  }
+  75% {
+    transform: translate(-15px, -15px) rotate(-5deg);
+  }
+}
+
+@keyframes float-2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(-20px, -10px) rotate(-5deg);
+  }
+  50% {
+    transform: translate(0, -20px) rotate(0deg);
+  }
+  75% {
+    transform: translate(20px, -10px) rotate(5deg);
+  }
+}
+
+@keyframes float-3 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(25px, -5px) rotate(3deg);
+  }
+  50% {
+    transform: translate(0, -10px) rotate(0deg);
+  }
+  75% {
+    transform: translate(-25px, -5px) rotate(-3deg);
+  }
+}
+
+/* Add new animations for the info section */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.floating-image {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Enhanced Gallery Transitions */
+.gallery-image {
+  transition: all 0.5s ease-in-out;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05);
+}
+
+/* Scroll Reveal Animation */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Parallax Effect */
+.parallax {
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+
+/* Enhanced Floating Animation */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  75% {
+    transform: translateY(10px) rotate(-1deg);
+  }
+}
+
+.floating-element {
+  animation: float 6s ease-in-out infinite;
+}
+
+html {
+  scroll-behavior: smooth;
 }
