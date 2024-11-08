@@ -4,7 +4,7 @@
 
 /* Make background black during intro */
 body {
-  background: black;
+  background: rgb(86, 86, 86);
 }
 
 .cooked {
@@ -232,3 +232,187 @@ body {
   mix-blend-mode: overlay;
   pointer-events: none;
 }
+
+/* Add new styles */
+.loaded {
+  opacity: 1 !important;
+  background: white !important;
+}
+
+.content {
+  transition: opacity 0.5s ease-in-out, background 0.5s ease-in-out;
+}
+
+/* Floating animation utility classes */
+.float-element {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-element-delayed {
+  animation: float 6s ease-in-out 2s infinite;
+}
+
+/* Add smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure proper stacking */
+.content {
+  z-index: 60;
+}
+
+/* Glitch text effect */
+.glitch-text {
+  position: relative;
+  animation: glitch 3s infinite;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: 'NeoDev League';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -2px 0 #ff00c1;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+  animation: glitch-anim2 1s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(31px, 9999px, 94px, 0);
+    transform: skew(0.85deg);
+  }
+  5% {
+    clip: rect(70px, 9999px, 71px, 0);
+    transform: skew(0.85deg);
+  }
+  /* Add more steps as needed */
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(65px, 9999px, 119px, 0);
+    transform: skew(0.85deg);
+  }
+  5% {
+    clip: rect(47px, 9999px, 64px, 0);
+    transform: skew(0.85deg);
+  }
+  /* Add more steps as needed */
+}
+
+/* Floating assets */
+.floating-asset {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  animation: float-around 20s linear infinite;
+}
+
+@keyframes float-around {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(100px, 50px) rotate(90deg);
+  }
+  50% {
+    transform: translate(50px, 100px) rotate(180deg);
+  }
+  75% {
+    transform: translate(-50px, 50px) rotate(270deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
+/* Media flow animations */
+.media-flow > div {
+  transition: all 0.5s ease-out;
+}
+
+.media-flow > div:hover {
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+/* Add different float animations for each bubble */
+@keyframes float-0 { /* ... */ }
+@keyframes float-1 { /* ... */ }
+@keyframes float-2 { /* ... */ }
+@keyframes float-3 { /* ... */ }
+@keyframes float-4 { /* ... */ }
+
+/* Update color variables */
+:root {
+  --darker-green: #065f46;
+  --lighter-green: #34D399;
+  --very-light-green: #D1FAE5;
+  --accent: #34D399;
+  --dark1: #044f3b;
+  --dark2: #065f46;
+  --dark3: #0b8065;
+  --blurred: rgba(6, 95, 70, 0.5);
+  --transparent: rgba(6, 95, 70, 0.01);
+  --gray: #E0E0E0;
+  --textlight: #83c5af;
+  --light1: #6ee7b7;
+  --light2: #C4EDE0;
+  --light3: rgba(196, 237, 224, 0.25);
+  --light4: #e8fef9;
+}
+
+/* Add your provided glitch CSS here */
+.hero {
+  font-size: clamp(20px, 5vw, 32px);
+  line-height: 1;
+  display: inline-block;
+  color: var(--darker-green);
+  z-index: 2;
+  letter-spacing: 2px;
+  filter: drop-shadow(0 1px 3px);
+}
+
+/* Rest of the glitch CSS you provided */
+.layers {
+  position: relative;
+}
+
+.layers::before,
+.layers::after {
+  content: attr(data-text);
+  position: absolute;
+  width: 110%;
+  z-index: -1;
+}
+
+/* ... rest of your glitch CSS ... */
+
+/* Update existing animations with new colors */
+.floating-asset {
+  background: var(--light3);
+}
+
+.media-flow > div {
+  background: var(--light2);
+  border-color: var(--lighter-green);
+}
+
+/* ... rest of your existing CSS ... */
