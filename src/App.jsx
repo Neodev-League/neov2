@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import logo from "./assets/Neo-logo.png";
+import WelcomeSection from "./WelcomeSection";
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -12,50 +13,21 @@ function App() {
 
   return (
     <>
-      {/* macOS-style Navbar */}
-      <nav className="fixed top-0 left-0 right-0 h-12 bg-white/80 backdrop-blur-md border-b border-gray-200 z-50 flex items-center px-4">
-        <div className="flex items-center space-x-4">
-          <a
-            href="/"
-            className="flex items-center space-x-2 text-[#065f46] hover:text-[#34D399] transition-colors"
-          >
-            <span className="text-sm font-medium">Home</span>
-          </a>
-          <a
-            href="/dashboard"
-            className="flex items-center space-x-2 text-[#065f46] hover:text-[#34D399] transition-colors"
-          >
-            <span className="text-sm font-medium">Dashboard</span>
-          </a>
-          <a
-            href="/sponsor"
-            className="flex items-center space-x-2 text-[#065f46] hover:text-[#34D399] transition-colors"
-          >
-            <span className="text-sm font-medium">Sponsor</span>
-          </a>
-        </div>
-      </nav>
-
       {/* Intro animation */}
-      <div className="intro-container">
-        <div className="cooked grid place-items-center h-screen w-screen perspective-container">
-          <img
-            src={logo}
-            alt="Neo Developer League"
-            className="cooked logo-fade w-48"
-          />
+      <div className={`intro-container fixed inset-0 z-50 ${isLoaded ? 'fade-out' : ''}`}>
+        <div className="grid place-items-center h-full w-full">
+          <div className="text-center">
+            <img
+              src={logo}
+              alt="Neo Developer League"
+              className="neo-logo w-48 mb-4"
+            />
+          </div>
         </div>
       </div>
 
-      {/* Glitch overlay */}
-      <div className="glitch"></div>
-
       {/* Main content */}
-      <div
-        className={`content absolute inset-0 ${
-          isLoaded ? "loaded" : ""
-        } overflow-y-auto pt-12`}
-      >
+      <div className={`content absolute inset-0 ${isLoaded ? "loaded" : ""} overflow-y-auto pt-12`}>
         <div className="min-h-screen bg-gradient-to-b from-white via-[#D1FAE5] to-[#C4EDE0]">
           {/* Hero Section */}
           <section className="relative h-screen overflow-hidden">
@@ -97,7 +69,7 @@ function App() {
                       ></div>
                       <span
                         className="absolute top-0 left-0 px-2 py-1 text-xs text-white bg-[#065f46] rounded-md
-                                     transform -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                     transform -translate-y-[25px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                       >
                         Coming Soon
                       </span>
@@ -130,51 +102,7 @@ function App() {
           </section>
 
           {/* Welcome Section with Updated Media Flow */}
-          <section className="relative px-8 md:px-16 py-24">
-            <div className="max-w-7xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-16 items-center">
-                {/* Text Content */}
-                <div className="space-y-8">
-                  <h2 className="font-manrope font-bold text-4xl md:text-5xl text-[#065f46]">
-                    Welcome to the Neo Developer League
-                  </h2>
-                  <p className="text-lg text-[#065f46]/70 leading-relaxed">
-                    Empowering high school students through competitive
-                    programming, fostering innovation, and building a community
-                    of future tech leaders through the World.
-                  </p>
-                </div>
-
-                {/* Updated Media Flow */}
-                <div className="relative h-[600px] overflow-hidden">
-                  <div className="media-flow">
-                    {[1, 2, 3, 4].map((_, i) => (
-                      <div
-                        key={i}
-                        className={`absolute rounded-full bg-white/80 backdrop-blur-sm 
-                                     shadow-lg border border-[#34D399]/20 overflow-hidden
-                                     transition-all duration-500 hover:scale-110`}
-                        style={{
-                          width: `${Math.max(160, Math.random() * 240)}px`,
-                          height: `${Math.max(160, Math.random() * 240)}px`,
-                          top: `${i * 22 + Math.random() * 10}%`,
-                          left: `${(i % 2) * 35 + Math.random() * 20}%`,
-                          transform: `translateX(${Math.random() * 40}px)`,
-                          animationDelay: `${i * 0.5}s`,
-                        }}
-                      >
-                        <div className="w-full h-full bg-[#065f46]/5 flex items-center justify-center">
-                          <span className="text-sm text-[#065f46]/50">
-                            Media {i + 1}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          <WelcomeSection />
 
           {/* Footer */}
           <footer className="relative px-8 md:px-16 py-12 bg-white/50 backdrop-blur-sm border-t border-[#34D399]/10">

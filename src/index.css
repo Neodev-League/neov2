@@ -2,417 +2,166 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Make background black during intro */
+/* Make background white during intro */
 body {
-  background: rgb(86, 86, 86);
-}
-
-.cooked {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform-origin: center;
-  width: auto;
-  height: auto;
-  max-width: 40vw;
-  animation: zoom-in 1.5s cubic-bezier(1,-0.01,.65,.38);
-}
-
-@keyframes zoom-in {
-  from {
-    transform: translate(-50%, -50%) scale(0.5);
-    opacity: 0.8;
-  } 
-  to {
-    transform: translate(-50%, -50%) scale(1.2);
-    opacity: 1;
-  }
+  background: white;
 }
 
 .intro-container {
-  background: black;
-  position: fixed;
-  inset: 0;
-  z-index: 40;
+  background-color: white;
+  transition: opacity 0.5s ease-out;
 }
 
-
-.logo-fade {
-  animation: fade-out 0.2s ease-out forwards;
-  animation-delay: 1.5s;
-}
-
-
-
-@keyframes fade-out {
-  to {
-    opacity: 0;
-  }
-}
-
-.glitch {
-  animation: glitch-effect 0.3s ease-out forwards;
-  animation-delay: 1.5s;
+.intro-container.fade-out {
   opacity: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: black;
-  z-index: 50;
-  overflow: hidden;
-}
-
-.glitch::before,
-.glitch::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-  animation: glitch-bars 0.1s steps(1) infinite;
-}
-
-.glitch::before {
-  animation-duration: 0.15s;
-  animation-delay: 0.05s;
-}
-
-@keyframes glitch-bars {
-  0% {
-    clip-path: polygon(
-      0 10%, 100% 10%, 100% 15%, 0 15%,
-      0 45%, 100% 45%, 100% 48%, 0 48%,
-      0 80%, 100% 80%, 100% 85%, 0 85%
-    );
-    background: rgba(16, 113, 91, 0.8);
-    transform: translateX(5px);
-  }
-  20% {
-    clip-path: polygon(
-      0 15%, 100% 15%, 100% 25%, 0 25%,
-      0 65%, 100% 65%, 100% 70%, 0 70%,
-      0 90%, 100% 90%, 100% 95%, 0 95%
-    );
-    background: rgba(133, 226, 190, 0.8);
-    transform: translateX(-5px);
-  }
-  40% {
-    clip-path: polygon(
-      0 5%, 100% 5%, 100% 10%, 0 10%,
-      0 35%, 100% 35%, 100% 40%, 0 40%,
-      0 70%, 100% 70%, 100% 75%, 0 75%
-    );
-    background: rgba(255, 255, 255, 0.8);
-    transform: translateX(3px);
-  }
-  60% {
-    clip-path: polygon(
-      0 20%, 100% 20%, 100% 30%, 0 30%,
-      0 50%, 100% 50%, 100% 55%, 0 55%,
-      0 85%, 100% 85%, 100% 90%, 0 90%
-    );
-    background: rgba(16, 113, 91, 0.8);
-    transform: translateX(-3px);
-  }
-  80% {
-    clip-path: polygon(
-      0 25%, 100% 25%, 100% 35%, 0 35%,
-      0 55%, 100% 55%, 100% 60%, 0 60%,
-      0 95%, 100% 95%, 100% 100%, 0 100%
-    );
-    background: rgba(133, 226, 190, 0.8);
-    transform: translateX(5px);
-  }
-  100% {
-    clip-path: polygon(
-      0 0%, 100% 0%, 100% 5%, 0 5%,
-      0 40%, 100% 40%, 100% 45%, 0 45%,
-      0 75%, 100% 75%, 100% 80%, 0 80%
-    );
-    background: rgba(255, 255, 255, 0.8);
-    transform: translateX(-5px);
-  }
-}
-
-@keyframes scan-lines {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(100%);
-  }
-}
-
-@keyframes horizontal-shift {
-  0% {
-    transform: translateX(-50%) skewX(45deg);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  }
-  25% {
-    transform: translateX(-25%) skewX(-35deg);
-    clip-path: polygon(5% 0, 95% 0, 100% 100%, 0 100%);
-  }
-  50% {
-    transform: translateX(25%) skewX(15deg);
-    clip-path: polygon(0 10%, 100% 0, 95% 90%, 5% 100%);
-  }
-  75% {
-    transform: translateX(50%) skewX(-45deg);
-    clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 90%);
-  }
-  100% {
-    transform: translateX(-50%) skewX(45deg);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  }
-}
-
-@keyframes glitch-effect {
-  0% {
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-    transform: translateX(-10px);
-  }
-  30% {
-    transform: translateX(10px);
-  }
-  50% {
-    transform: translateX(-5px);
-  }
-  70% {
-    transform: translateX(5px);
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(0);
-  }
-}
-
-.content {
-  opacity: 0;
-  animation: fade-in 0.5s ease-in forwards;
-  animation-delay: 1.8s;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-    background: white;
-  }
-}
-
-/* Update the App.jsx container class to add perspective */
-.perspective-container {
-  perspective: 1000px;
-  transform-style: preserve-3d;
-}
-
-/* Add noise texture */
-.glitch {
-  position: relative;
-}
-
-.glitch::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.05;
-  mix-blend-mode: overlay;
   pointer-events: none;
 }
 
-/* Add new styles */
-.loaded {
-  opacity: 1 !important;
-  background: white !important;
+.neo-logo {
+  animation: pulse-and-scale 2s ease-out forwards;
 }
 
-.content {
-  transition: opacity 0.5s ease-in-out, background 0.5s ease-in-out;
-}
-
-/* Floating animation utility classes */
-.float-element {
-  animation: float 6s ease-in-out infinite;
-}
-
-.float-element-delayed {
-  animation: float 6s ease-in-out 2s infinite;
-}
-
-/* Add smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Ensure proper stacking */
-.content {
-  z-index: 60;
-}
-
-/* Glitch text effect */
-.glitch-text {
-  position: relative;
-  animation: glitch 3s infinite;
-}
-
-.glitch-text::before,
-.glitch-text::after {
-  content: 'NeoDev League';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.glitch-text::before {
-  left: 2px;
-  text-shadow: -2px 0 #ff00c1;
-  clip: rect(44px, 450px, 56px, 0);
-  animation: glitch-anim 5s infinite linear alternate-reverse;
-}
-
-.glitch-text::after {
-  left: -2px;
-  text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
-  animation: glitch-anim2 1s infinite linear alternate-reverse;
-}
-
-@keyframes glitch-anim {
+@keyframes pulse-and-scale {
   0% {
-    clip: rect(31px, 9999px, 94px, 0);
-    transform: skew(0.85deg);
+    transform: scale(3);
+    opacity: 0;
+    filter: brightness(1.2);
   }
-  5% {
-    clip: rect(70px, 9999px, 71px, 0);
-    transform: skew(0.85deg);
+  20% {
+    transform: scale(5);
+    opacity: 1;
+    filter: brightness(1);
   }
-  /* Add more steps as needed */
-}
-
-@keyframes glitch-anim2 {
-  0% {
-    clip: rect(65px, 9999px, 119px, 0);
-    transform: skew(0.85deg);
-  }
-  5% {
-    clip: rect(47px, 9999px, 64px, 0);
-    transform: skew(0.85deg);
-  }
-  /* Add more steps as needed */
-}
-
-/* Floating assets */
-.floating-asset {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 50%;
-  animation: float-around 20s linear infinite;
-}
-
-@keyframes float-around {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  25% {
-    transform: translate(100px, 50px) rotate(90deg);
-  }
-  50% {
-    transform: translate(50px, 100px) rotate(180deg);
-  }
-  75% {
-    transform: translate(-50px, 50px) rotate(270deg);
+  80% {
+    transform: scale(5);
+    opacity: 1;
+    filter: brightness(1.1);
   }
   100% {
-    transform: translate(0, 0) rotate(360deg);
+    transform: scale(6.3);
+    opacity: 0;
+    filter: brightness(1.3);
   }
 }
 
-/* Media flow animations */
-.media-flow > div {
-  transition: all 0.5s ease-out;
+.content {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
-.media-flow > div:hover {
-  transform: scale(1.1);
-  z-index: 10;
+.content.loaded {
+  opacity: 1;
 }
 
-/* Add different float animations for each bubble */
-@keyframes float-0 { /* ... */ }
-@keyframes float-1 { /* ... */ }
-@keyframes float-2 { /* ... */ }
-@keyframes float-3 { /* ... */ }
-@keyframes float-4 { /* ... */ }
+/* Keep your existing content-related styles below this line */
 
-/* Update color variables */
-:root {
-  --darker-green: #065f46;
-  --lighter-green: #34D399;
-  --very-light-green: #D1FAE5;
-  --accent: #34D399;
-  --dark1: #044f3b;
-  --dark2: #065f46;
-  --dark3: #0b8065;
-  --blurred: rgba(6, 95, 70, 0.5);
-  --transparent: rgba(6, 95, 70, 0.01);
-  --gray: #E0E0E0;
-  --textlight: #83c5af;
-  --light1: #6ee7b7;
-  --light2: #C4EDE0;
-  --light3: rgba(196, 237, 224, 0.25);
-  --light4: #e8fef9;
+.neodev-text-container {
+  position: relative;
+  margin-top: 6rem;
 }
 
-/* Add your provided glitch CSS here */
-.hero {
-  font-size: clamp(20px, 5vw, 32px);
-  line-height: 1;
-  display: inline-block;
-  color: var(--darker-green);
-  z-index: 2;
-  letter-spacing: 2px;
-  filter: drop-shadow(0 1px 3px);
-}
-
-/* Rest of the glitch CSS you provided */
-.layers {
+.neodev-text {
+  color: #065f46;
+  text-shadow: 0 0 10px rgba(52, 211, 153, 0.5);
+  animation: text-flicker 3s linear infinite;
   position: relative;
 }
 
-.layers::before,
-.layers::after {
-  content: attr(data-text);
+.glow-effect {
   position: absolute;
-  width: 110%;
-  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(
+    circle,
+    rgba(52, 211, 153, 0.2) 0%,
+    rgba(52, 211, 153, 0.1) 25%,
+    rgba(52, 211, 153, 0) 70%
+  );
+  filter: blur(8px);
+  animation: pulse-glow 2s ease-in-out infinite;
+  pointer-events: none;
 }
 
-/* ... rest of your glitch CSS ... */
-
-/* Update existing animations with new colors */
-.floating-asset {
-  background: var(--light3);
+@keyframes text-flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  92.5% {
+    opacity: 0.8;
+  }
+  93% {
+    opacity: 1;
+  }
+  93.5% {
+    opacity: 0.9;
+  }
+  94% {
+    opacity: 1;
+  }
 }
 
-.media-flow > div {
-  background: var(--light2);
-  border-color: var(--lighter-green);
+@keyframes pulse-glow {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.7;
+  }
 }
 
-/* ... rest of your existing CSS ... */
+/* Add ambient light effect */
+.intro-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(52, 211, 153, 0.1) 0%,
+    rgba(6, 95, 70, 0.05) 50%,
+    transparent 100%
+  );
+  animation: ambient-light 4s ease-in-out infinite;
+}
+
+@keyframes ambient-light {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+/* Add subtle particle effect */
+.intro-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle at center,
+    rgba(52, 211, 153, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 50px 50px;
+  animation: particle-drift 20s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes particle-drift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
