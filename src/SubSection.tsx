@@ -133,7 +133,7 @@ export default function Component() {
         <div className="max-w-4xl mx-auto">
           <div className="text-sm text-[#34D399] mb-4">disclaimer.</div>
           <h3 className="text-4xl md:text-6xl font-bold text-[#065f46] mb-6">
-            this is not a hackathon.
+            not just a hackathon.
           </h3>
           <p className="text-[#065f46]/70 text-lg">
             lorem ipsum dolor sit amet consectetur adipisicing elit. repudiandae

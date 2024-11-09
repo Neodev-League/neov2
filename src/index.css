@@ -8,8 +8,15 @@ body {
 }
 
 .intro-container {
-  background-color: white;
+  background-color: rgb(191, 255, 201);
   transition: opacity 0.5s ease-out;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .intro-container.fade-out {
@@ -18,29 +25,30 @@ body {
 }
 
 .neo-logo {
-  animation: pulse-and-scale 2s ease-out infinite;
+  animation: pulse-and-scale 2.5s ease-out infinite;
+  position: relative;
+  z-index: 20;
+  width: 300px;
+  height: auto;
+  margin: 0 auto;
 }
 
 @keyframes pulse-and-scale {
   0% {
-    transform: scale(3);
+    transform: scale(0.1);
     opacity: 0;
-    filter: brightness(1.2);
   }
-  20% {
-    transform: scale(5);
+  40% {
+    transform: scale(1.4);
     opacity: 1;
-    filter: brightness(1);
   }
-  80% {
-    transform: scale(5);
+  60% {
+    transform: scale(1.4);
     opacity: 1;
-    filter: brightness(1.1);
   }
   100% {
-    transform: scale(3);
+    transform: scale(0.1);
     opacity: 0;
-    filter: brightness(1.3);
   }
 }
 
@@ -121,100 +129,90 @@ body {
 .intro-container::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at center,
-    rgba(52, 211, 153, 0.1) 0%,
-    rgba(6, 95, 70, 0.05) 50%,
-    transparent 100%
-  );
-  animation: ambient-light 4s ease-in-out infinite;
+  width: 200vw;
+  height: 200vh;
+  top: -50vh;
+  left: -50vw;
+  background: 
+    linear-gradient(90deg, #34D399 0.5px, transparent 1px),
+    linear-gradient(180deg, #34D399 0.5px, transparent 1px);
+  background-size: 30px 30px;
+  transform-origin: center;
+  animation: grid-spin 25s linear infinite;
+  opacity: 0.1;
 }
 
-@keyframes ambient-light {
-  0%, 100% {
-    opacity: 0.5;
-    transform: scale(1);
+@keyframes grid-spin {
+  0% {
+    transform: rotate(0deg) scale(2);
   }
-  50% {
-    opacity: 0.7;
-    transform: scale(1.1);
+  100% {
+    transform: rotate(360deg) scale(2);
   }
 }
 
-/* Add subtle particle effect */
+/* Add floating particles */
 .intro-container::after {
   content: '';
   position: absolute;
-  inset: 0;
-  background-image: radial-gradient(
-    circle at center,
-    rgba(52, 211, 153, 0.1) 1px,
-    transparent 1px
+  inset: -100%;
+  background-image: 
+    radial-gradient(circle at 20% 30%, #34D399 1px, transparent 1px),
+    radial-gradient(circle at 80% 70%, #065f46 1px, transparent 1px),
+    radial-gradient(circle at 40% 80%, #34D399 1px, transparent 1px),
+    radial-gradient(circle at 60% 20%, #065f46 1px, transparent 1px);
+  background-size: 
+    100px 100px,
+    120px 120px,
+    80px 80px,
+    110px 110px;
+  animation: particle-drift 15s linear infinite;
+  opacity: 0.15;
+}
+
+/* Add subtle wave effect */
+.wave-effect {
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(52, 211, 153, 0.03) 10px,
+    rgba(52, 211, 153, 0.03) 20px
   );
-  background-size: 50px 50px;
-  animation: particle-drift 20s linear infinite;
-  opacity: 0.5;
+  animation: wave 10s ease-in-out infinite;
 }
 
 @keyframes particle-drift {
   0% {
-    background-position: 0 0;
+    background-position: 
+      0 0,
+      0 0,
+      0 0,
+      0 0;
   }
   100% {
-    background-position: 50px 50px;
+    background-position: 
+      100px 100px,
+      -100px -100px,
+      50px -50px,
+      -50px 50px;
   }
 }
 
-/* Make background white during intro */
-body {
-  background: white;
-}
-
-.intro-container {
-  background-color: white;
-  transition: opacity 0.5s ease-out;
-}
-
-.intro-container.fade-out {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.neo-logo {
-  animation: pulse-and-scale 2s ease-out infinite;
-}
-
-@keyframes pulse-and-scale {
-  0% {
-    transform: scale(3);
-    opacity: 0;
-    filter: brightness(1.2);
+@keyframes wave {
+  0%, 100% {
+    transform: skewX(0deg);
   }
-  20% {
-    transform: scale(5);
-    opacity: 1;
-    filter: brightness(1);
+  25% {
+    transform: skewX(2deg);
   }
-  80% {
-    transform: scale(5);
-    opacity: 1;
-    filter: brightness(1.1);
+  75% {
+    transform: skewX(-2deg);
   }
-  100% {
-    transform: scale(3);
-    opacity: 0;
-    filter: brightness(1.3);
-  }
-}
-
-.content {
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.content.loaded {
-  opacity: 1;
 }
 
 /* Enhanced Floating Animations for Bubbles */

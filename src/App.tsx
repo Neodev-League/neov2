@@ -15,18 +15,17 @@ function App() {
     <>
       {/* Intro animation */}
       <div
-        className={`intro-container fixed inset-0 z-50 ${
+        className={`intro-container ${
           isLoaded ? "fade-out" : ""
         }`}
       >
-        <div className="grid place-items-center h-full w-full">
-          <div className="text-center">
-            <img
-              src={logo}
-              alt="Neo Developer League"
-              className="neo-logo w-48 mb-4"
-            />
-          </div>
+        <div className="wave-effect" />
+        <div className="relative z-10 flex items-center justify-center">
+          <img
+            src={logo}
+            alt="Neo Developer League"
+            className="neo-logo"
+          />
         </div>
       </div>
 
