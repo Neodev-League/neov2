@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "./assets/Neo-logo.png";
 import SubSection from "./SubSection";
 import neobuild1 from "./assets/neobuild1.png";

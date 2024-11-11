@@ -138,17 +138,17 @@ export default function Component() {
             not just a hackathon.
           </h3>
           <p className="text-[#065f46]/70 text-lg">
-            lorem ipsum dolor sit amet consectetur adipisicing elit. repudiandae
-            reiciendis sint nam dolor optio nemo veritatis numquam labore eos
-            quaerat necessitatibus, harum sit eum aut blanditiis. odio optio
-            iusto in.
+            we're a community of developers
+            who are passionate about building things that matter. we're not
+            a hackathon, we're a movement with new systems and implementations
+            that will change the future of building forever.
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
           <div className="text-sm text-[#34D399] mb-4">cha-ching!</div>
           <h3 className="text-4xl md:text-6xl font-bold text-[#065f46] mb-6">
-            funding? np.
+            no funding? np.
           </h3>
           <p className="text-[#065f46]/70 text-lg">
             we have a new funding model that allows you to focus on building
