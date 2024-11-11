@@ -97,11 +97,9 @@ export default function Component() {
               className="w-full h-full object-cover"
             />
           </motion.div>
-          <div className="absolute z-[75] font-bold text-[#065f46] text-center transform -translate-x-1/2 left-1/2">
-            <span
-              className="text-transparent text-6xl bg-clip-text bg-gradient-to-r from-[#065f46] via-[#34D399] to-[#065f46] 
-                        bg-size-200 animate-gradient-x tracking-tight hover:scale-105 transition-transform duration-300"
-            >
+          <div className="absolute z-[75] font-bold text-[#065f46] text-center transform -translate-x-1/2 left-1/2 w-full max-w-[800px]">
+            <span className="text-transparent text-6xl bg-clip-text bg-gradient-to-r from-[#065f46] via-[#34D399] to-[#065f46] 
+                        bg-size-200 animate-gradient-x tracking-tight hover:scale-105 transition-transform duration-300">
               wrdsb dev summit
             </span>
             <br />
@@ -109,9 +107,11 @@ export default function Component() {
               26.10.24
             </span>
             <br />
-            <span className="text-2xl block mt-4 font-medium tracking-wide text-[#065f46]/80 animate-pulse">
-              100 Participants • 10 Schools • <i>100 Handmade Sandwiches</i>
-            </span>
+            <div className="text-2xl mt-4 font-medium tracking-wide text-[#065f46]/80 animate-pulse flex flex-col xl:flex-row items-center justify-center gap-2">
+              <span>100 Participants • 10 Schools</span>
+              <span className="hidden xl:inline">•</span>
+              <i>100 Handmade Sandwiches</i>
+            </div>
           </div>
           <motion.div
             style={{
