@@ -38,12 +38,12 @@ function App() {
         <div className="min-h-screen bg-gradient-to-b from-white via-[#D1FAE5] to-[#C4EDE0] bg-fixed">
           {/* Hero Section */}
           <section className="relative h-screen overflow-hidden">
-            <div className="flex h-full">
+            <div className="flex flex-col md:flex-row h-full">
               {/* Left side - Text Content */}
-              <div className="flex-1 pl-8 md:pl-16 flex items-center">
+              <div className="flex-1 px-4 sm:px-6 md:pl-16 flex items-center justify-center">
                 <div className="max-w-2xl">
-                  <h1 className="font-manrope font-bold text-7xl md:text-7xl text-[#065f46] leading-relaxed mb-8">
-                    inspiring the next <br />
+                  <h1 className="font-manrope font-bold text-5xl sm:text-6xl md:text-7xl lg:text-7xl text-[#065f46] leading-tight md:leading-relaxed mb-4 md:mb-8 text-center md:text-left">
+                    inspiring the next <br className="hidden md:block" />
                     <span className="relative inline-block">
                       <span
                         className="text-transparent bg-clip-text bg-gradient-to-r from-[#065f46] via-[#34D399] to-[#065f46] 
@@ -56,7 +56,7 @@ function App() {
                   </h1>
 
                   {/* Apply Now Button */}
-                  <div className="mt-12">
+                  <div className="mt-12 flex justify-center md:justify-start">
                     <button className="relative group cursor-not-allowed">
                       <div
                         className="relative px-8 py-3 bg-[#065f46] text-white rounded-sm font-semibold
@@ -86,7 +86,7 @@ function App() {
               </div>
 
               {/* Right side - Large Logo */}
-              <div className="flex-1 relative">
+              <div className="flex-1 relative flex items-center justify-center md:block">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <img
                     src={logo}

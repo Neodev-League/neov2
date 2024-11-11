@@ -131,7 +131,7 @@ export default function Component() {
       {/* Info Sections */}
       <div className="container mx-auto px-4 space-y-32">
         <div className="max-w-4xl mx-auto">
-          <div className="text-sm text-[#34D399] mb-4">disclaimer.</div>
+          <div className="text-sm text-[#34D399] mb-4">remember!</div>
           <h3 className="text-4xl md:text-6xl font-bold text-[#065f46] mb-6">
             not just a hackathon.
           </h3>
@@ -144,7 +144,7 @@ export default function Component() {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="text-sm text-[#34D399] mb-4">flexibility.</div>
+          <div className="text-sm text-[#34D399] mb-4">cha-ching!</div>
           <h3 className="text-4xl md:text-6xl font-bold text-[#065f46] mb-6">
             funding? np.
           </h3>
