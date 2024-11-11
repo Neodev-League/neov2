@@ -46,7 +46,7 @@ function App() {
                 <div className="max-w-2xl">
                   <h1 className="font-manrope font-extrabold md:font-bold text-6xl sm:text-6xl md:text-7xl lg:text-7xl text-[#065f46] leading-tight mb-4 md:mb-8 text-center md:text-left">
                     inspiring the next <br className="hidden md:block" />
-                    <span className="relative inline-block">
+                    <span className="pt-3 relative inline-block">
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#065f46] via-[#34D399] to-[#065f46] bg-size-200 animate-gradient-x">
                         generation of engineers.
                       </span>
@@ -135,7 +135,7 @@ function App() {
                     className="w-12 h-12 hover:scale-110 transition-transform duration-300"
                   />
                   <p className="text-sm text-[#065f46]/70">
-                    Building the next generation of tech leaders through
+                    building the next generation of tech leaders through
                     competitive programming.
                   </p>
                 </div>
@@ -147,10 +147,10 @@ function App() {
                     <span className="absolute -bottom-1 left-0 w-12 h-0.5 bg-gradient-to-r from-[#34D399] to-transparent"></span>
                   </h3>
                   <ul className="space-y-2">
-                    {["About", "Podcast", "Signal"].map((link) => (
+                    {["about", "podcast", "signal"].map((link) => (
                       <li key={link}>
                         <a
-                          href={link === "Signal" ? "https://signal.me/#eu/mrBEBmbIDhIOm4LM-ZyG4JmfV030ld2SS1HvLU5eQgWCqJ-FcWxEZblOTGHLR4mY" : "#"}
+                          href={link === "signal" ? "https://signal.me/#eu/mrBEBmbIDhIOm4LM-ZyG4JmfV030ld2SS1HvLU5eQgWCqJ-FcWxEZblOTGHLR4mY" : "#"}
                           className="text-sm text-[#065f46]/70 hover:text-[#34D399] transition-colors relative group flex items-center"
                         >
                           <span className="absolute -left-4 w-2 h-2 bg-[#34D399] rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
@@ -180,7 +180,7 @@ function App() {
                           clipRule="evenodd"
                         />
                       </svg>
-                      <span>Waterloo, ON</span>
+                      <span>waterloo, on</span>
                     </li>
                     <li>
                       <a
