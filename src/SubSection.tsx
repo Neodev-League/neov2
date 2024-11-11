@@ -59,7 +59,7 @@ export default function Component() {
       {/* Hero Section */}
       <div className="container mx-auto px-4 mb-32">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-7xl md:text-7xl font-bold text-[#065f46] mb-8 leading-tight">
+          <h2 className="text-5xl md:text-7xl font-bold text-[#065f46] mb-8 leading-tight">
             turn your <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#065f46] to-[#34D399]">
               passion to life.
