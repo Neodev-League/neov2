@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import logo from "./assets/Neo-logo.png";
 import SubSection from "./SubSection";
+import neobuild1 from "./assets/neobuild1.png";
+import neobuild2 from "./assets/neobuild2.png";
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -112,12 +114,12 @@ function App() {
             {/* Background Images */}
             <div className="absolute inset-0 opacity-45">
               <img
-                src="/src/assets/neobuild1.png"
+                src={neobuild1}
                 alt=""
                 className="absolute right-0 bottom-0 w-48 h-auto transform rotate-12 translate-x-12 translate-y-6"
               />
               <img
-                src="/src/assets/neobuild2.png"
+                src={neobuild2}
                 alt=""
                 className="absolute left-0 top-0 w-48 h-auto transform -rotate-12 -translate-x-12 -translate-y-6"
               />

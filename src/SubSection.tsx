@@ -8,6 +8,8 @@ import {
   useSpring,
   useVelocity,
 } from "framer-motion";
+import webimg1 from "./assets/webimg1.jpg";
+import webimg2 from "./assets/webimg2.jpg";
 
 export default function Component() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -90,7 +92,7 @@ export default function Component() {
             className="absolute w-[500px] h-[300px] rounded-2xl overflow-hidden shadow-2xl"
           >
             <img
-              src="./src/assets/webimg1.jpg"
+              src={webimg1}
               alt="Decorative"
               className="w-full h-full object-cover"
             />
@@ -120,7 +122,7 @@ export default function Component() {
             className="absolute w-[500px] h-[300px] rounded-2xl overflow-hidden shadow-2xl"
           >
             <img
-              src="./src/assets/webimg2.jpg"
+              src={webimg2}
               alt="Decorative"
               className="w-full h-full object-cover"
             />
