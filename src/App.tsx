@@ -42,13 +42,10 @@ function App() {
               {/* Left side - Text Content */}
               <div className="flex-1 px-4 sm:px-6 md:pl-16 flex items-center justify-center">
                 <div className="max-w-2xl">
-                  <h1 className="font-manrope font-bold text-5xl sm:text-6xl md:text-7xl lg:text-7xl text-[#065f46] leading-tight md:leading-relaxed mb-4 md:mb-8 text-center md:text-left">
+                  <h1 className="font-manrope font-bold text-5xl sm:text-6xl md:text-7xl lg:text-7xl text-[#065f46] leading-tight mb-4 md:mb-8 text-center md:text-left">
                     inspiring the next <br className="hidden md:block" />
                     <span className="relative inline-block">
-                      <span
-                        className="text-transparent bg-clip-text bg-gradient-to-r from-[#065f46] via-[#34D399] to-[#065f46] 
-                                     bg-size-200 animate-gradient-x"
-                      >
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#065f46] via-[#34D399] to-[#065f46] bg-size-200 animate-gradient-x">
                         generation of engineers.
                       </span>
                       <span className="absolute -inset-1 border border-[#34D399]/10 rounded-lg blur-sm"></span>
