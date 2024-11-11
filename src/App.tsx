@@ -150,7 +150,7 @@ function App() {
                     {["About", "Podcast", "Signal"].map((link) => (
                       <li key={link}>
                         <a
-                          href="#"
+                          href={link === "Signal" ? "https://signal.me/#eu/mrBEBmbIDhIOm4LM-ZyG4JmfV030ld2SS1HvLU5eQgWCqJ-FcWxEZblOTGHLR4mY" : "#"}
                           className="text-sm text-[#065f46]/70 hover:text-[#34D399] transition-colors relative group flex items-center"
                         >
                           <span className="absolute -left-4 w-2 h-2 bg-[#34D399] rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
