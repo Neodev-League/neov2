@@ -37,7 +37,7 @@ function App() {
           isLoaded ? "loaded" : ""
         } overflow-y-auto pt-12`}
       >
-        <div className="min-h-screen bg-gradient-to-b from-white via-[#D1FAE5] to-[#C4EDE0] bg-fixed">
+        <div className="min-h-screen bg-gradient-to-b from-white via-[#D1FAE5] to-[#C4EDE0] bg-local">
           {/* Hero Section */}
           <section className="relative h-screen overflow-hidden">
             <div className="flex flex-col md:flex-row h-full">
