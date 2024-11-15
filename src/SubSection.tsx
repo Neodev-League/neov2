@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import {
   motion,
   useScroll,
@@ -73,10 +74,16 @@ export default function Component() {
             something that you're proud of.
           </p>
         </div>
-      </div>
+      </motion.div>
 
       {/* Floating Images Section with Enhanced Animation */}
-      <div className="relative h-[70vh] mb-48">
+      <motion.div
+        className="relative h-[70vh] mb-48"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
         <motion.div
           className="absolute inset-0 flex items-center justify-center"
           style={{

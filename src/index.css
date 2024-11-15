@@ -7,6 +7,10 @@ body {
   background: white;
 }
 
+.motion-div {
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
 .intro-container {
   background-color: rgb(191, 255, 201);
   transition: opacity 0.5s ease-out;
@@ -55,7 +59,7 @@ body {
 @media (min-width: 768px) {
   @keyframes pulse-and-scale {
     0% {
-      transform: scale(0.2);
+      transform: scale(0.2);  
       opacity: 0;
     }
     40% {
@@ -283,7 +287,8 @@ body {
 }
 
 /* Add new animations for the info section */
-.scroll-reveal {
+.scroll-reveal,
+.motion-div {
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease-out;
@@ -399,5 +404,60 @@ html {
   .min-h-screen {
     min-height: -webkit-fill-available;
     background-attachment: scroll !important;
+  }
+}
+
+/* Add a gradient background to the body */
+body {
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec, #bcccdc);
+  background-size: 400% 400%;
+  animation: gradient-animation 15s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Enhance the intro animation with a shadow effect */
+.intro-container {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Improve text styling with a new font and shadow */
+.neodev-text {
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 0 0 15px rgba(52, 211, 153, 0.7);
+}
+
+/* Add hover effects to interactive elements */
+.gallery-image:hover {
+  transform: scale(1.1) rotate(2deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhance the hero section with a bold design */
+.hero-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #065f46;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(90deg, #34D399, #065f46);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Add a subtle animation to the hero text */
+.hero-text {
+  animation: text-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes text-glow {
+  0% {
+    text-shadow: 0 0 5px rgba(52, 211, 153, 0.5), 0 0 10px rgba(52, 211, 153, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(52, 211, 153, 0.7), 0 0 30px rgba(52, 211, 153, 0.7);
   }
 }
