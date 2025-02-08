@@ -1,6 +1,93 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-neo-blue-100: #e6f0ff;
+  --color-neo-blue-200: #b3d1ff;
+  --color-neo-blue-500: #0066ff;
+  --color-neo-blue-600: #0052cc;
+  --color-neo-blue-900: #00264d;
+
+  --color-neo-accent-300: #ffd1b3;
+  --color-neo-accent-400: #ff9966;
+  --color-neo-accent-500: #ff6633;
+
+  --font-manrope: Manrope, sans-serif;
+  --font-inter: Inter, sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float 15s ease-in-out infinite;
+  --animate-float-delayed: float 6s ease-in-out 2s infinite;
+  --animate-counter: counter 2s ease-out forwards;
+  --animate-gradient-x: gradient-x 3s ease infinite;
+  --animate-scroll: scroll 1.5s ease-in-out infinite;
+  --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
+
+  --background-size-size-200: 200% 200%;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) translateX(0);
+    }
+    25% {
+      transform: translateY(-20px) translateX(10px);
+    }
+    50% {
+      transform: translateY(10px) translateX(-10px);
+    }
+    75% {
+      transform: translateY(-15px) translateX(15px);
+    }
+  }
+  @keyframes gradient-x {
+    0%,
+    100% {
+      background-size: 200% 200%;
+      background-position: left center;
+    }
+    50% {
+      background-size: 200% 200%;
+      background-position: right center;
+    }
+  }
+  @keyframes scroll {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(6px);
+    }
+  }
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 /* Make background white during intro */
 body {

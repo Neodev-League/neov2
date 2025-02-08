@@ -1,13 +1,12 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import { motion } from "framer-motion";
 import {
   motion,
   useScroll,
   useTransform,
-  useSpring,
-  useVelocity,
+  // useSpring,
+  // useVelocity,
 } from "framer-motion";
 import webimg1 from "./assets/webimg1.jpg";
 import webimg2 from "./assets/webimg2.jpg";
@@ -16,20 +15,20 @@ export default function Component() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();  // Removed target and offset to track global scroll
 
-  const scrollVelocity = useVelocity(scrollY);
-  const smoothVelocity = useSpring(scrollVelocity, {
-    damping: 50,
-    stiffness: 400,
-  });
+  // const scrollVelocity = useVelocity(scrollY);
+  // const smoothVelocity = useSpring(scrollVelocity, {
+  //   damping: 50,
+  //   stiffness: 400,
+  // });
 
-  const velocityFactor = useTransform(
-    smoothVelocity,
-    [-1000, 0, 1000],
-    [-1, 0, 1],
-    {
-      clamp: false,
-    }
-  );
+  // const velocityFactor = useTransform(
+  //   smoothVelocity,
+  //   [-1000, 0, 1000],
+  //   [-1, 0, 1],
+  //   {
+  //     clamp: false,
+  //   }
+  // );
 
   // Adjusted transform values for more noticeable movement
   const x1 = useTransform(scrollY, [0, 1000], [-600, 0]);  // Linear movement based on scroll
@@ -62,7 +61,7 @@ export default function Component() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl md:text-7xl font-bold text-[#065f46] mb-8 leading-tight">
             turn your <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#065f46] to-[#34D399]">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#065f46] to-[#34D399]">
               passion to life.
             </span>
           </h2>
@@ -74,7 +73,7 @@ export default function Component() {
             something that you're proud of.
           </p>
         </div>
-      </motion.div>
+      </div>
 
       {/* Floating Images Section with Enhanced Animation */}
       <motion.div
@@ -104,13 +103,13 @@ export default function Component() {
               className="w-full h-full object-cover"
             />
           </motion.div>
-          <div className="absolute z-[75] font-bold text-[#065f46] text-center transform -translate-x-1/2 left-1/2 w-full max-w-[800px]">
-            <span className="text-transparent text-6xl bg-clip-text bg-gradient-to-r from-[#065f46] via-[#34D399] to-[#065f46] 
+          <div className="absolute z-75 font-bold text-[#065f46] text-center transform -translate-x-1/2 left-1/2 w-full max-w-[800px]">
+            <span className="text-transparent text-6xl bg-clip-text bg-linear-to-r from-[#065f46] via-[#34D399] to-[#065f46] 
                         bg-size-200 animate-gradient-x tracking-tight hover:scale-105 transition-transform duration-300">
               wrdsb dev summit
             </span>
             <br />
-            <span className="text-4xl inline-block mt-4 font-extrabold tracking-widest bg-gradient-to-r from-[#065f46] to-[#34D399] text-transparent bg-clip-text">
+            <span className="text-4xl inline-block mt-4 font-extrabold tracking-widest bg-linear-to-r from-[#065f46] to-[#34D399] text-transparent bg-clip-text">
               26.10.24
             </span>
             <br />
@@ -135,7 +134,7 @@ export default function Component() {
             />
           </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Info Sections */}
       <div className="container mx-auto px-4 space-y-32">
@@ -155,12 +154,12 @@ export default function Component() {
         <div className="max-w-4xl mx-auto">
           <div className="text-sm text-[#34D399] mb-4">cha-ching!</div>
           <h3 className="text-4xl md:text-6xl font-bold text-[#065f46] mb-6">
-            no funding? np.
+            no money? np.
           </h3>
           <p className="text-[#065f46]/70 text-lg">
-            we have a new funding model that allows you to focus on building
+            we have a new funding model that allows participants to focus on building
             without worrying about the financial side of things during the
-            event. just bring a laptop and a willingness to learn.
+            event. all you need is a laptop and a passion for innovation.
           </p>
         </div>
       </div>

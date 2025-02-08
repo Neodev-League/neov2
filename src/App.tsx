@@ -37,7 +37,7 @@ function App() {
           isLoaded ? "loaded" : ""
         } overflow-y-auto pt-12`}
       >
-        <div className="min-h-screen bg-gradient-to-b from-white via-[#D1FAE5] to-[#C4EDE0] bg-local">
+        <div className="min-h-screen bg-linear-to-b from-white via-[#D1FAE5] to-[#C4EDE0] bg-local">
           {/* Hero Section */}
           <section className="relative h-screen overflow-hidden">
             <div className="flex flex-col md:flex-row h-full">
@@ -47,10 +47,10 @@ function App() {
                   <h1 className="font-manrope font-extrabold md:font-bold text-6xl sm:text-6xl md:text-7xl lg:text-7xl text-[#065f46] leading-tight mb-4 md:mb-8 text-center md:text-left">
                     inspiring the next <br className="hidden md:block" />
                     <span className="pt-3 relative inline-block">
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#065f46] via-[#34D399] to-[#065f46] bg-size-200 animate-gradient-x">
+                      <span className="text-transparent bg-clip-text bg-linear-to-r from-[#065f46] via-[#34D399] to-[#065f46] bg-size-200 animate-gradient-x">
                         generation of engineers.
                       </span>
-                      <span className="absolute -inset-1 border border-[#34D399]/10 rounded-lg blur-sm"></span>
+                      <span className="absolute -inset-1 border border-[#34D399]/10 rounded-lg blur-xs"></span>
                     </span>
                   </h1>
 
@@ -64,12 +64,12 @@ function App() {
                       >
                         <span className="relative z-10">apply now</span>
                         <div
-                          className="absolute inset-0 bg-gradient-to-r from-[#34D399] to-[#6ee7b7]
+                          className="absolute inset-0 bg-linear-to-r from-[#34D399] to-[#6ee7b7]
                                       opacity-0 group-hover:opacity-20 transition-opacity duration-300"
                         ></div>
                       </div>
                       <div
-                        className="absolute -inset-[2px] bg-gradient-to-r from-[#34D399] to-[#6ee7b7]
+                        className="absolute -inset-[2px] bg-linear-to-r from-[#34D399] to-[#6ee7b7]
                                     rounded-lg opacity-75 blur group-hover:opacity-100 transition-opacity duration-300
                                     -z-10"
                       ></div>
@@ -110,7 +110,7 @@ function App() {
           <SubSection/>
 
           {/* Footer */}
-          <footer className="relative px-8 md:px-16 py-12 backdrop-blur-sm border-t border-[#34D399]/10 overflow-hidden">
+          <footer className="relative px-8 md:px-16 py-12 backdrop-blur-xs border-t border-[#34D399]/10 overflow-hidden">
             {/* Background Images */}
             <div className="absolute inset-0 opacity-45">
               <img
@@ -144,7 +144,7 @@ function App() {
                 <div>
                   <h3 className="font-manrope font-semibold text-[#065f46] mb-4 relative">
                     Quick Links
-                    <span className="absolute -bottom-1 left-0 w-12 h-0.5 bg-gradient-to-r from-[#34D399] to-transparent"></span>
+                    <span className="absolute -bottom-1 left-0 w-12 h-0.5 bg-linear-to-r from-[#34D399] to-transparent"></span>
                   </h3>
                   <ul className="space-y-2">
                     {["about", "podcast", "signal"].map((link) => (
@@ -165,7 +165,7 @@ function App() {
                 <div>
                   <h3 className="font-manrope font-semibold text-[#065f46] mb-4 relative">
                     Contact
-                    <span className="absolute -bottom-1 left-0 w-12 h-0.5 bg-gradient-to-r from-[#34D399] to-transparent"></span>
+                    <span className="absolute -bottom-1 left-0 w-12 h-0.5 bg-linear-to-r from-[#34D399] to-transparent"></span>
                   </h3>
                   <ul className="space-y-4">
                     <li className="flex items-center space-x-2 text-sm text-[#065f46]/70">
@@ -221,7 +221,7 @@ function App() {
 
               {/* Copyright */}
               <div className="mt-8 pt-4 border-t border-[#34D399]/10 text-center">
-                <p className="text-sm text-[#065f46]/70">©</p>
+                <p className="text-sm text-[#065f46]/70">© neo developer league 2025</p>
               </div>
             </div>
           </footer>
