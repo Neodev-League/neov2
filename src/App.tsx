@@ -3,6 +3,7 @@ import logo from "./assets/Neo-logo.png";
 import SubSection from "./SubSection";
 import neobuild1 from "./assets/neobuild1.png";
 import neobuild2 from "./assets/neobuild2.png";
+import sponsorPDF from "./assets/pdf/sponsor.pdf";
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -16,18 +17,10 @@ function App() {
   return (
     <>
       {/* Intro animation */}
-      <div
-        className={`intro-container ${
-          isLoaded ? "fade-out" : ""
-        }`}
-      >
+      <div className={`intro-container ${isLoaded ? "fade-out" : ""}`}>
         <div className="wave-effect" />
         <div className="relative z-10 flex items-center justify-center">
-          <img
-            src={logo}
-            alt="Neo Developer League"
-            className="neo-logo"
-          />
+          <img src={logo} alt="Neo Developer League" className="neo-logo" />
         </div>
       </div>
 
@@ -107,7 +100,7 @@ function App() {
             </div>
           </section>
           {/* Welcome Section with Updated Media Flow */}
-          <SubSection/>
+          <SubSection />
 
           {/* Footer */}
           <footer className="relative px-8 md:px-16 py-12 backdrop-blur-xs border-t border-[#34D399]/10 overflow-hidden">
@@ -147,11 +140,20 @@ function App() {
                     <span className="absolute -bottom-1 left-0 w-12 h-0.5 bg-linear-to-r from-[#34D399] to-transparent"></span>
                   </h3>
                   <ul className="space-y-2">
-                    {["about", "podcast", "signal"].map((link) => (
+                    {["vlog", "sponsorship", "discord"].map((link) => (
                       <li key={link}>
                         <a
-                          href={link === "signal" ? "https://signal.me/#eu/mrBEBmbIDhIOm4LM-ZyG4JmfV030ld2SS1HvLU5eQgWCqJ-FcWxEZblOTGHLR4mY" : "#"}
-                          className="text-sm text-[#065f46]/70 hover:text-[#34D399] transition-colors relative group flex items-center"
+                          href={
+                            link === "discord"
+                              ? "#"
+                              : link === "sponsorship"
+                              ? sponsorPDF
+                              : "https://www.youtube.com/watch?v=IMnJ1tvQV2c"
+                          }
+                          onClick={(e) => link === "discord" && e.preventDefault()}
+                          aria-disabled={link === "discord" ? "true" : "false"} 
+                          target="_blank"
+                          className={`text-sm text-[#065f46]/70 hover:text-[#34D399] transition-colors relative group flex items-center ${link==="discord"? "cursor-not-allowed" : ""}`}
                         >
                           <span className="absolute -left-4 w-2 h-2 bg-[#34D399] rounded-full scale-0 group-hover:scale-100 transition-transform"></span>
                           {link}
@@ -221,7 +223,9 @@ function App() {
 
               {/* Copyright */}
               <div className="mt-8 pt-4 border-t border-[#34D399]/10 text-center">
-                <p className="text-sm text-[#065f46]/70">© neo developer league 2025</p>
+                <p className="text-sm text-[#065f46]/70">
+                  © neo developer league 2025
+                </p>
               </div>
             </div>
           </footer>
