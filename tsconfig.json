@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"] // tells typescript that alias is also on runtime, otherwise it recognizes it only on compile time
+    },
     "target": "ES2020",
     "types": ["vite/client"],
     "useDefineForClassFields": true,

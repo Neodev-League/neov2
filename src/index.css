@@ -6,6 +6,12 @@
   --color-neo-blue-500: #0066ff;
   --color-neo-blue-600: #0052cc;
   --color-neo-blue-900: #00264d;
+  --color-neo-green-1: #34D399;
+  --color-neo-green-2: #D1FAE5;
+  --color-neo-green-3: #065f46; 
+  --color-neo-green-4: #59ebb6;
+  --color-neo-green-5: #7bf1a8;
+  --color-neo-green-6: #e0ffef;
 
   --color-neo-accent-300: #ffd1b3;
   --color-neo-accent-400: #ff9966;
@@ -21,6 +27,8 @@
   --animate-gradient-x: gradient-x 3s ease infinite;
   --animate-scroll: scroll 1.5s ease-in-out infinite;
   --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
+  --animate-marquee: marquee 10s linear infinite;
+  --animate-marquee-vertical: marquee-vertical 10s linear infinite;
 
   --background-size-size-200: 200% 200%;
 
@@ -69,6 +77,23 @@
       transform: translateY(0);
     }
   }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }  
 }
 
 /*
@@ -87,6 +112,34 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
+}
+
+@keyframes glow {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+}
+
+.animate-glow {
+  animation: glow 1.5s ease-in-out infinite;
+  transform-origin: left center;
+  background: linear-gradient(90deg, rgba(203, 251, 225, 0.8) 50%, rgba(174, 235, 215, 0) 100%);
+}
+
+/* overwrite autofil color */
+input:-webkit-autofill {
+  background-color: rgba(255, 255, 255, 0.2) !important; 
+  color: #000 !important; 
+  -webkit-box-shadow: 0 0 0px 1000px #d2f2e2bd inset !important;
 }
 
 /* Make background white during intro */
