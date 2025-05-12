@@ -12,13 +12,13 @@ import {
   UserRound,
   BadgeInfo,
   CheckCheck,
+  House,
 } from "lucide-react";
 import neologo from "@/src/assets/Neo-logo.png";
 import neocity from "@/src/assets/n4.png";
 import neocity2 from "@/src/assets/n8.png";
-import examplePDF from "@/src/assets/pdf/sponsor.pdf";
+// import examplePDF from "@/src/assets/pdf/sponsor.pdf";
 import DashNavbar from "@/src/components/dashNav";
-
 
 export default function Dashboard() {
   const [name, setName] = useState("");
@@ -33,8 +33,12 @@ export default function Dashboard() {
   return (
     <div className="relative lg:h-screen w-screen bg-linear-to-b from-neo-green-2/90 via-neo-green-4/50 to-neo-green-1/90 font-manrope lg:overflow-hidden">
       <div className="flex font-extrabold md:font-bold text-xl sm:text-2xl md:text-2xl text-[#065f46] leading-tight text-center md:text-left p-5">
+        <button className="relative p-7.5 bg-neo-green-1/50 rounded-lg shadow-black/15 shadow-md cursor-pointer hover:bg-neo-green-1/35 transition ease-in-out delay-50 duration-200" onClick={()=>navigate('/')}>
+          <House className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-2/5 h-6 w-6 text-neo-green-3"/>
+        </button>
         <span className="w-full text-transparent bg-clip-text bg-linear-to-r from-neo-green-4 via-neo-green-1 to-neo-green-5 bg-size-200 animate-gradient-x-slow flex justify-center shadow-black/80 drop-shadow-sm">
-          hello <span className="mx-1">{name}</span> welcome to your personal dashboard.
+          hello <span className="mx-1">{name}</span> welcome to your personal
+          dashboard.
         </span>
       </div>
 
@@ -48,29 +52,36 @@ export default function Dashboard() {
             className={cn(
               "shadow-black/15 shadow-md cursor-pointer",
               item.className,
-              "[&>p]:text-lg"
+              "[&>p]:text-lg",
+              // all of the above until further changes lol
+              item.title === "submission" && "cursor-not-allowed",
+              item.title === "developer package" && "cursor-not-allowed",
+              item.title === "application" && "cursor-not-allowed",
+              item.title === "profile" && "cursor-not-allowed",
+              item.title === "schedule" && "cursor-not-allowed"
             )}
             icon={item.icon}
-            onClick={() => {
-              if(item.title == "developer package"){
-                window.open(examplePDF, "_blank", "noopener,noreferrer");
-                return; 
-              }
-              if(item.title == "submission"){
-                window.open("https://www.youtube.com/watch?v=IMnJ1tvQV2c", "_blank", "noopener,noreferrer");
-                return; 
-              }
-              if (
-                item.title !== "submission" && item.title !== "developer package"
-              ) {
-                navigate(`${item.title}`);
-              }
-            }}
+            // onClick={() => {
+            //   if(item.title == "developer package"){
+            //     window.open(examplePDF, "_blank", "noopener,noreferrer");
+            //     return;
+            //   }
+            //   if(item.title == "submission"){
+            //     // placeholder...
+            //     window.open("https://www.youtube.com/watch?v=IMnJ1tvQV2c", "_blank", "noopener,noreferrer");
+            //     return;
+            //   }
+            //   if (
+            //     item.title !== "submission" && item.title !== "developer package"
+            //   ) {
+            //     navigate(`${item.title}`);
+            //   }
+            // }}
           />
         ))}
       </BentoGrid>
 
-      <DashNavbar/>
+      <DashNavbar />
     </div>
   );
 }
@@ -139,7 +150,7 @@ const SkeletonTwo = () => {
       whileHover="hover"
       className="flex flex-1 w-full h-full min-h-[6rem] bg-dot-black/[0.2] flex-col space-y-2"
     >
-      <Marquee3D/>
+      <Marquee3D />
     </motion.div>
   );
 };
@@ -279,7 +290,7 @@ const SkeletonFive = () => {
         variants={variants}
         className="flex flex-row rounded-2xl border border-transparent p-2 items-start space-x-2"
       >
-        <AnimatedListDemo/>
+        <AnimatedListDemo />
       </motion.div>
     </motion.div>
   );
@@ -288,9 +299,7 @@ const SkeletonFive = () => {
 const items = [
   {
     title: "application",
-    description: (
-      <span className="text-sm">apply to the 6ix summit.</span>
-    ),
+    description: <span className="text-sm">apply to the 6ix summit.</span>,
     header: <SkeletonOne />,
     className: "md:col-span-1",
     icon: <Crown className="h-4 w-4 text-neo-green-2" />,
@@ -304,9 +313,7 @@ const items = [
   },
   {
     title: "schedule",
-    description: (
-      <span className="text-sm">official schedule.</span>
-    ),
+    description: <span className="text-sm">official schedule.</span>,
     header: <SkeletonFive />,
     className: "md:col-span-1",
     icon: <Calendar className="h-4 w-4 text-neo-green-2" />,

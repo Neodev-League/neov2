@@ -30,7 +30,7 @@ const reviews = [
   {
     name: "jerry",
     username: "@jerry",
-    body: "give me head",
+    body: "i love shawarma",
     img: jy,
   },
   {
@@ -42,13 +42,13 @@ const reviews = [
   {
     name: "stephen",
     username: "@unc",
-    body: "lil sus boy",
+    body: "push up king",
     img: unc,
   },
   {
     name: "andy",
     username: "@duong",
-    body: "casper dong",
+    body: "stargazer",
     img: ad,
   },
 ];

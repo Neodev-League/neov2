@@ -46,7 +46,7 @@ function DashNavbar() {
 
         <Link
           to="/dashboard/application"
-          className={`text-white hover:text-white transition-colors text-center md:text-left ${
+          className={`text-white hover:text-white transition-colors text-center md:text-left cursor-not-allowed pointer-events-none ${
             location.pathname === "/dashboard/application" ? "font-bold" : ""
           }`}
         >
@@ -55,7 +55,7 @@ function DashNavbar() {
 
         <Link
           to="/dashboard/profile"
-          className={`text-white hover:text-white transition-colors text-center md:text-left ${
+          className={`text-white hover:text-white transition-colors text-center md:text-left cursor-not-allowed pointer-events-none ${
             location.pathname === "/dashboard/profile" ? "font-bold" : ""
           }`}
         >
@@ -64,7 +64,7 @@ function DashNavbar() {
 
         <Link
           to="/dashboard/schedule"
-          className={`text-white hover:text-white transition-colors text-center md:text-left ${
+          className={`text-white hover:text-white transition-colors text-center md:text-left cursor-not-allowed pointer-events-none ${
             location.pathname === "/dashboard/schedule" ? "font-bold" : ""
           }`}
         >

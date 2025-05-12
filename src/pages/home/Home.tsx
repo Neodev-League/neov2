@@ -62,7 +62,7 @@ const Home: React.FC = () => {
                                     overflow-hidden transition-all duration-300
                                     group-hover:bg-[#0b8065]"
                       >
-                        <span className="relative z-10">apply now</span>
+                        <span className="relative z-10">preview</span>
                         <div
                           className="absolute inset-0 bg-linear-to-r from-[#34D399] to-[#6ee7b7]
                                       opacity-0 group-hover:opacity-20 transition-opacity duration-300"
