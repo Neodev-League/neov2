@@ -16,7 +16,6 @@ let notifications = [
     name: "shawarma is here",
     description: "serving dinner",
     time: "1m ago",
-
     icon: "🌯",
     color: "#00C9A7",
   },
@@ -63,7 +62,7 @@ const Notification = ({ name, description, icon, color, time }: Item) => {
   return (
     <figure
       className={cn(
-        "relative mx-auto w-full max-w-[400px] cursor-pointer overflow-hidden rounded-2xl p-4",
+        "relative mx-auto w-full md:max-w-[400px] cursor-pointer rounded-2xl py-4 md:px-4",
         // animation styles
         "transition-all duration-200 ease-in-out hover:scale-[103%]",
         // dark styles
@@ -81,11 +80,11 @@ const Notification = ({ name, description, icon, color, time }: Item) => {
         </div>
         <div className="flex flex-col overflow-hidden">
           <figcaption className="flex flex-row items-center whitespace-pre text-lg font-medium dark:text-white ">
-            <span className="text-sm sm:text-lg text-neo-green-6 font-bold">{name}</span>
+            <span className="text-xs sm:text-lg text-neo-green-6 font-bold ">{name}</span>
             <span className="mx-1">·</span>
             <span className="text-xs text-neo-green-3/70">{time}</span>
           </figcaption>
-          <p className="text-sm font-normal text-neo-green-6">
+          <p className="text-xs font-normal text-neo-green-6">
             {description}
           </p>
         </div>

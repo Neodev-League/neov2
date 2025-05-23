@@ -31,18 +31,18 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className="relative lg:h-screen w-screen bg-linear-to-b from-neo-green-2/90 via-neo-green-4/50 to-neo-green-1/90 font-manrope lg:overflow-hidden">
+    <div className="relative h-auto md:h-screen w-screen bg-linear-to-b from-neo-green-2/90 via-neo-green-4/50 to-neo-green-1/90 font-manrope lg:overflow-hidden pb-30 md:pb-0">
       <div className="flex font-extrabold md:font-bold text-xl sm:text-2xl md:text-2xl text-[#065f46] leading-tight text-center md:text-left p-5">
         <button className="relative p-7.5 bg-neo-green-1/50 rounded-lg shadow-black/15 shadow-md cursor-pointer hover:bg-neo-green-1/35 transition ease-in-out delay-50 duration-200" onClick={()=>navigate('/')}>
           <House className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-2/5 h-6 w-6 text-neo-green-3"/>
         </button>
-        <span className="w-full text-transparent bg-clip-text bg-linear-to-r from-neo-green-4 via-neo-green-1 to-neo-green-5 bg-size-200 animate-gradient-x-slow flex justify-center shadow-black/80 drop-shadow-sm">
-          hello <span className="mx-1">{name}</span> welcome to your personal
-          dashboard.
+        <span className="w-full text-transparent bg-clip-text bg-linear-to-r from-neo-green-4 via-neo-green-1 to-neo-green-5 bg-size-200 flex justify-center shadow-black/80 drop-shadow-sm md:text-2xl text-md md:flex-row flex-col animate-gradient-x-slow ">
+          <div>hello<span className="mx-1">{name},</span> </div>
+          <div>welcome to your personal dashboard.</div>
         </span>
       </div>
 
-      <BentoGrid className="max-w-[80%] max-h-screen mx-auto md:auto-rows-[20rem] mt-10 p-5">
+      <BentoGrid className="max-w-[80%] md:max-h-screen mx-auto md:auto-rows-[20rem] mt-10 p-5">
         {items.map((item, i) => (
           <BentoGridItem
             key={i}
@@ -150,7 +150,7 @@ const SkeletonTwo = () => {
       whileHover="hover"
       className="flex flex-1 w-full h-full min-h-[6rem] bg-dot-black/[0.2] flex-col space-y-2"
     >
-      <Marquee3D />
+      <Marquee3D/>
     </motion.div>
   );
 };
@@ -214,7 +214,7 @@ const SkeletonFour = () => {
     >
       <motion.div
         variants={first}
-        className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center shadow-black/30 shadow-lg"
+        className="h-full md:w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 md:flex hidden flex-col items-center justify-center shadow-black/30 shadow-lg"
       >
         <img
           src={neocity}
@@ -230,7 +230,7 @@ const SkeletonFour = () => {
           i.e venue
         </p>
       </motion.div>
-      <motion.div className="h-full relative z-20 w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center shadow-black/30 shadow-lg">
+      <motion.div className="h-full relative z-20 md:w-1/3 w-full rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center shadow-black/30 shadow-lg">
         <img
           src={neologo}
           alt="avatar"
@@ -247,7 +247,7 @@ const SkeletonFour = () => {
       </motion.div>
       <motion.div
         variants={second}
-        className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center shadow-black/30 shadow-lg"
+        className="h-full md:w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 md:flex hidden flex-col items-center justify-center shadow-black/30 shadow-lg"
       >
         <img
           src={neocity2}
@@ -284,13 +284,13 @@ const SkeletonFive = () => {
     <motion.div
       initial="initial"
       whileHover="animate"
-      className="flex flex-1 w-full min-h-[6rem] bg-dot-black/[0.2] flex-col space-y-2"
+      className="flex flex-1 w-full  min-h-[6rem] bg-dot-black/[0.2] flex-col space-y-2"
     >
       <motion.div
         variants={variants}
-        className="flex flex-row rounded-2xl border border-transparent p-2 items-start space-x-2"
+        className="w-full flex flex-row rounded-2xl border border-transparent p-2 items-start space-x-2 "
       >
-        <AnimatedListDemo />
+        <AnimatedListDemo/>
       </motion.div>
     </motion.div>
   );
